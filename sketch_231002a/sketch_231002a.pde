@@ -19,7 +19,11 @@ void setup() {
   backgroundImageY = appHeight*0;
   backgroundImageWidth = appWidth-1;
   backgroundImageHeight = appHeight-1;
-  picBackground = loadImage("../imagesUsed/Landscape and Square/desktop-wallpaper-cool-background-that-move-cool-fortnite.jpg");
+  String up = "..";
+  String open = "/";
+  String imagesPath = up + open;
+  String landScapeImage = "ImagesUsed/Landscape and Square/desktop-wallpaper-cool-background-that-move-cool-fortnite.jpg";
+  picBackground = loadImage(imagesPath + landScapeImage"../imagesUsed/Landscape and Square/desktop-wallpaper-cool-background-that-move-cool-fortnite.jpg");
   //
   //DIVs
   rect( backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
