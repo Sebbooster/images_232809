@@ -1,7 +1,7 @@
 //Global Variables
 int appWidth, appHeight;
 float backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight;
-PImage picBackground;
+PImage picBackground, appleForeground;
 Boolean nightmode=false; //Note: clock can turn it on automatically
 Boolean brightnessControl=false; //Note arrows control
 int brightnessNumber=128; //range:1-225
@@ -22,8 +22,8 @@ void setup() {
   String up = "..";
   String open = "/";
   String imagesPath = up + open;
-  String landScapeImage = "ImagesUsed/Landscape and Square/desktop-wallpaper-cool-background-that-move-cool-fortnite.jpg";
-  picBackground = loadImage(imagesPath + landScapeImage"../imagesUsed/Landscape and Square/desktop-wallpaper-cool-background-that-move-cool-fortnite.jpg");
+  String landScapeImage = ("ImagesUsed/Landscape and Square/");
+  picBackground = loadImage(imagesPath + landScapeImage + "../imagesUsed/Landscape and Square/desktop-wallpaper-cool-background-that-move-cool-fortnite.jpg");
   //
   //DIVs
   rect( backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
@@ -32,7 +32,7 @@ void setup() {
 //
 void draw() {
   //background(255); //built in BUG, 1 pixel
-  rect( backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
+  //rect( backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
   //
   if ( brightnessControl==true ) //grey scale 1/2 tint
   if (brightnessNumber<1) { 
@@ -52,6 +52,8 @@ println (brightnessNumber);
     //println(nightmode);
   }
   image( picBackground, backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
+  image(appleForeground); //image
+  image();
 } //End draw
 //
 void keyPressed() {
