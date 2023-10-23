@@ -1,10 +1,12 @@
 //Global Variables
 int appWidth, appHeight;
 float backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight;
-PImage picBackground, appleForeground;
+PImage picBackground, AppleBasket, BlackHole;
 Boolean nightmode=false; //Note: clock can turn it on automatically
 Boolean brightnessControl=false; //Note arrows control
 int brightnessNumber=128; //range:1-225
+float AppleX, AppleY, AppleWidth, AppleHeight;
+float HoleX, HoleY, HoleWidth, HoleHeight;
 
 //
 void setup() {
@@ -19,14 +21,37 @@ void setup() {
   backgroundImageY = appHeight*0;
   backgroundImageWidth = appWidth-1;
   backgroundImageHeight = appHeight-1;
+  HoleX = AppleX;
+  HoleY = appHeight*5/8;
+  HoleWidth = AppleWidth;
+  HoleHeight = AppleHeight;
+  AppleX = appWidth*1/14;
+  AppleY = appHeight*1/8;
+  AppleWidth = appWidth*2.3/7;
+  AppleHeight = appHeight*1/4;
+  //Aspect ratio calculations
+  //Dtetermine aspect ratio
+  //Compare dimension to get larger dimensions
+  //calculate smaller dimension
+  //rewrite variables based on rect() vars
+  AppleBasketImageWidth = ;
+  AppleBasketImageHeight = ;
+  BlackHoleImageWidth = ;
+  BlackHoleImageHeight = ;
+  SpaceHomerImageWidth = ;
+  SpaceHomerImageHeight = ;
   String up = "..";
   String open = "/";
   String imagesPath = up + open;
   String landScapeImage = ("ImagesUsed/Landscape and Square/");
-  picBackground = loadImage(imagesPath + landScapeImage + "../imagesUsed/Landscape and Square/desktop-wallpaper-cool-background-that-move-cool-fortnite.jpg");
+  picBackground = loadImage(imagesPath + landScapeImage + "SpaceHomer.jpg");
+  AppleBasket = loadImage(imagesPath + landScapeImage + "Apples_Basket.jpg");
+  BlackHole = loadImage(imagesPath + landScapeImage + "BlackHole.jpg");
   //
   //DIVs
   rect( backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
+  rect(AppleX, AppleY, AppleWidth, AppleHeight);
+  rect(HoleX, HoleY, HoleWidth, HoleHeight);
   //
 } //End setup
 //
@@ -52,8 +77,8 @@ println (brightnessNumber);
     //println(nightmode);
   }
   image( picBackground, backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
-  image(appleForeground); //image
-  image();
+  image(AppleBasket, AppleX, AppleY, AppleWidth, AppleHeight); //image
+  image(BlackHole, HoleX, HoleY, HoleWidth, HoleHeight);
 } //End draw
 //
 void keyPressed() {
