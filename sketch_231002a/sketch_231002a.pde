@@ -7,6 +7,7 @@ Boolean brightnessControl=false; //Note arrows control
 int brightnessNumber=128; //range:1-225
 float AppleX, AppleY, AppleWidth, AppleHeight;
 float HoleX, HoleY, HoleWidth, HoleHeight;
+float AppleBasketImageWidth, AppleBasketImageHeight, BlackHoleImageWidth, BlackHoleImageHeight, SpaceHomerImageWidth, SpaceHomerImageHeight;
 
 //
 void setup() {
@@ -30,16 +31,36 @@ void setup() {
   AppleWidth = appWidth*2.3/7;
   AppleHeight = appHeight*1/4;
   //Aspect ratio calculations
-  //Dtetermine aspect ratio
-  //Compare dimension to get larger dimensions
-  //calculate smaller dimension
-  //rewrite variables based on rect() vars
-  AppleBasketImageWidth = ;
-  AppleBasketImageHeight = ;
-  BlackHoleImageWidth = ;
-  BlackHoleImageHeight = ;
-  SpaceHomerImageWidth = ;
-  SpaceHomerImageHeight = ;
+  //find the bigger side
+  //compress bigger side into rect
+  //multiply apect ratio to smaller side
+  AppleBasketImageWidth = 1440.0;
+  AppleBasketImageHeight = 810.0;
+  BlackHoleImageWidth = 768.0;
+  BlackHoleImageHeight = 518.0;
+  SpaceHomerImageWidth = 850.0;
+  SpaceHomerImageHeight = 531.0;
+  float aspectRatio = 0.0; //LocalVariable
+  float rectDimensionMemory = 0.0;
+  if (AppleBasketImageWidth >= AppleBasketImageHeight) {
+    println("Apple is landscape");
+    aspectRatio = AppleHeight / AppleWidth; //small div by larger = 0 if int, use casting
+    AppleBasketImageWidth = AppleWidth;
+    AppleHeight = aspectRatio * AppleWidth;
+  } else {
+   
+    
+    println("Apple is portrait");
+    aspectRatio = AppleWidth / AppleHeight; //small div by larger = 0 if int, use casting
+    AppleBasketImageHeight = AppleHeight;
+    AppleWidth = aspectRatio * AppleHeight;
+     if (AppleBasketImageWidth > AppleWidth) {} 
+  }
+   if (BlackHoleImageWidth >= BlackHoleImageHeight) {
+     println("Black hole is landscape");
+   } else {
+     println("Black hole is portait");
+   }
   String up = "..";
   String open = "/";
   String imagesPath = up + open;
